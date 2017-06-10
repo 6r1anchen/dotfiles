@@ -61,7 +61,7 @@ rcup
 echo "---------------------------------------------------------"
 
 echo "Changing to zsh"
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
 
 echo "You'll need to log out for this to take effect"
 echo "---------------------------------------------------------"
