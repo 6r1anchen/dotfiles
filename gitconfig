@@ -2,9 +2,8 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [user]
-	name = mhartington
-	email = mikehartington@gmail.com
-	signingkey = 493BFB24814E6209
+	name = Brian Chen
+	email = brianchen8990@gmail.com
 [credential]
 	helper = osxkeychain
 [filter "hawser"]
@@ -16,7 +15,7 @@
 	smudge = git lfs smudge %f
 	required = true
 [github]
-  user = mhartington
+  user = br1anchen
 
 [core]
   pager = zsh -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
@@ -27,8 +26,14 @@
   newNormal = "green bold"
   newHighlight = "green bold 22"
 [ghi]
-	token = !security find-internet-password -a mhartington -s github.com -l 'ghi token' -w
+	token = !security find-internet-password -a br1anchen -s github.com -l 'ghi token' -w
 [commit]
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = /usr/local/bin/gpg
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
