@@ -24,7 +24,8 @@
   call dein#add('othree/jsdoc-syntax.vim')
   call dein#add('heavenshell/vim-jsdoc')
   call dein#add('elzr/vim-json')
-  call dein#add('HerringtonDarkholme/yats.vim')
+  " call dein#add('HerringtonDarkholme/yats.vim')
+  call dein#add('leafgarland/typescript-vim')
   call dein#add('skwp/vim-html-escape')
   call dein#add('hail2u/vim-css3-syntax')
   call dein#add('ap/vim-css-color')
@@ -93,10 +94,12 @@
   call dein#add('Shougo/vimfiler.vim')
   call dein#add('Shougo/unite.vim')
   call dein#add('junegunn/gv.vim')
-  call dein#local('~/GitHub', {},['vim-folds'])
-  call dein#local('~/GitHub', {},['oceanic-next'])
+  call dein#add('mhartington/oceanic-next')
+  call dein#add('mhartington/nvim-typescript')
+  " call dein#local('~/GitHub', {},['vim-folds'])
+  " call dein#local('~/GitHub', {},['oceanic-next'])
   " call dein#local('~/GitHub', {},['operator-next'])
-  call dein#local('~/GitHub', {},['nvim-typescript'])
+  " call dein#local('~/GitHub', {},['nvim-typescript'])
   call dein#add('chemzqm/denite-git')
   call dein#add('sjl/vitality.vim')
   call dein#add('ryanoasis/vim-devicons')
@@ -106,13 +109,15 @@
     let pluginsExist=1
   endif
 
+  call map(dein#check_clean(), "delete(v:val, 'rf')")
+
   call dein#end()
   filetype plugin indent on
 " }}}
 
 " System Settings  ----------------------------------------------------------{{{
 
-  source ~/.local.vim
+  source ~/.vimrc
 " Neovim Settings
   set termguicolors
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1

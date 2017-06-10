@@ -33,6 +33,7 @@
   if dein#check_install()
     call dein#install()
   endif
+  call map(dein#check_clean(), "delete(v:val, 'rf')")
   call dein#end()
 
 " Required:
@@ -40,6 +41,8 @@
 " }}}
 
 " System Settings  ----------------------------------------------------------{{{
+
+language en_US
 
 " Let airline tell me my status
   set termguicolors
@@ -224,7 +227,7 @@ autocmd FileType coffee setl foldmethod=indent
 
 map <silent> - :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=45
 let g:NERDTreeAutoDeleteBuffer=1
@@ -377,6 +380,7 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
+set encoding=utf8
 set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13
 "}}}
 
