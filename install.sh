@@ -19,6 +19,7 @@ packages=(
 "lua"
 "neovim"
 "weechat --with-lua --with-perl --with-python --with-ruby"
+"ripgrep"
 )
 
 for i in "${packages[@]}"
