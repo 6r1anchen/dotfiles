@@ -59,7 +59,7 @@
   call dein#add('mattn/emmet-vim')
   call dein#add('sbdchd/neoformat')
 " deoplete stuff
-  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
   call dein#add('Shougo/deol.nvim')
 
   call dein#add('Shougo/denite.nvim')
@@ -96,6 +96,8 @@
   call dein#add('junegunn/gv.vim')
   call dein#add('mhartington/oceanic-next')
   call dein#add('mhartington/nvim-typescript')
+  " call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  " call dein#add('Quramy/tsuquyomi')
   " call dein#local('~/GitHub', {},['vim-folds'])
   " call dein#local('~/GitHub', {},['oceanic-next'])
   " call dein#local('~/GitHub', {},['operator-next'])
@@ -104,6 +106,7 @@
   call dein#add('sjl/vitality.vim')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+  call dein#add('w0rp/ale');
   if dein#check_install()
     call dein#install()
     let pluginsExist=1
@@ -130,7 +133,13 @@
   filetype on
   set  number
   set numberwidth=1
-  set tabstop=2 shiftwidth=2 expandtab
+" by default, the indent is 2 spaces.
+  set shiftwidth=2
+  set softtabstop=2
+  set tabstop=2
+
+  autocmd Filetype javascript,typescript setlocal ts=4 sw=4 sts=0 expandtab
+
   set conceallevel=0
   set virtualedit=
   set wildmenu
@@ -281,10 +290,14 @@
             \}
 
   let g:neomake_typescript_enabled_makers = ['tsc']
-  map <silent> <leader>gd :TSDoc <cr>
-  map <silent> <leader>gt :TSType <cr>
+  " let g:tsuquyomi_disable_default_mappings = 1
+  map <silent> <leader>td :TSDoc <cr>
+  map <silent> <leader>tt :TSType <cr>
+  map <silent> <leader>gd :TSDef <cr>
+  map <silent> <leader>gp :TSDefPreview <cr>
+  map <silent> <leader>tr :TSRefs <cr>
   map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
-  " autocmd FileType typescript setl omnifunc=TSComplete
+  autocmd FileType typescript setl omnifunc=TSComplete
   let g:nvim_typescript#kind_symbols = {
       \ 'keyword': 'keyword',
       \ 'class': '',
@@ -750,6 +763,7 @@
   let g:airline_theme='oceanicnext'
   cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
   tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
+  nmap <leader>x :bd<CR>
   nmap <leader>t :term<cr>
   nmap <leader>, :bnext<CR>
   tmap <leader>, <C-\><C-n>:bnext<cr>
@@ -793,5 +807,19 @@
   autocmd! BufWritePost * Neomake
   let g:neomake_warning_sign = {'text': '•'}
   let g:neomake_error_sign = {'text': '•'}
+
+"}}}
+
+" ale -------------------------------------------------------------------{{{
+
+  let g:ale_sign_error = '⨉'
+  let g:ale_sign_warning = '⚠'
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '']
+  let g:ale_lint_on_text_changed = 0
+  let g:ale_lint_on_save = 1
+
+  let g:ale_echo_msg_error_str = 'E'
+  let g:ale_echo_msg_warning_str = 'W'
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 "}}}

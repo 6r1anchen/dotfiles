@@ -50,7 +50,13 @@ language en_US
   set noswapfile
   filetype on
   set relativenumber number
-  set tabstop=2 shiftwidth=2 expandtab
+" by default, the indent is 2 spaces.
+	set shiftwidth=2
+  set softtabstop=2
+  set tabstop=2
+
+  autocmd Filetype javascript,typescript setlocal ts=4 sw=4 sts=0 expandtab
+
   set conceallevel=0
 " block select not limited by shortest line
   set virtualedit=
