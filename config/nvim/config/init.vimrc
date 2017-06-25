@@ -42,7 +42,7 @@
 	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'Shougo/unite.vim'
 
-	Plug 'Shougo/denite.nvim'
+	Plug 'Shougo/denite.nvim', { 'commit': 'ffc52df' }
 	Plug 'chemzqm/denite-git'
 	Plug 'pocari/vim-denite-gists'
 " }}}2
