@@ -63,7 +63,6 @@
 	Plug 'jasonlong/vim-textobj-css'
 	Plug 'Konfekt/FastFold'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'terryma/vim-multiple-cursors'
 	Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
 
