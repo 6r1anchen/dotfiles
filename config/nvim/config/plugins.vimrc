@@ -421,11 +421,65 @@
 " =============================================================================
 
   let g:tsuquyomi_disable_quickfix = 1
-  augroup ts
-    autocmd FileType typescript nmap <buffer> <Leader>T : <C-u>echo tsuquyomi#hint()<CR>
-    autocmd FileType typescript nmap Ti <Plug>(TsuquyomiImport)
-    autocmd FileType typescript nmap Td <Plug>(TsuquyomiDefinition)
-    autocmd FileType typescript nmap Tr <Plug>(TsuquyomiReferences)
-  augroup end
+  " augroup ts
+  "   autocmd FileType typescript nmap <buffer> <Leader>T : <C-u>echo tsuquyomi#hint()<CR>
+  "   autocmd FileType typescript nmap Ti <Plug>(TsuquyomiImport)
+  "   autocmd FileType typescript nmap Td <Plug>(TsuquyomiDefinition)
+  "   autocmd FileType typescript nmap Tr <Plug>(TsuquyomiReferences)
+  " augroup end
 
+  map <silent> <leader>ti :TsuquyomiImport <cr>
+" }}}
+
+" mhartington/nvim-typescript {{{
+" =============================================================================
+  let g:neomake_typescript_tsc_maker = {
+	\ 'append_file': 0,
+	\ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
+	\ 'errorformat':
+	\   '%E%f %#(%l\,%c): error %m,' .
+	\   '%E%f %#(%l\,%c): %m,' .
+	\   '%Eerror %m,' .
+	\   '%C%\s%\+%m'
+	\}
+
+  let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
+
+  map <silent> <leader>td :TSDoc <cr>
+  map <silent> <leader>tt :TSType <cr>
+  map <silent> <leader>gd :TSDef <cr>
+  map <silent> <leader>gp :TSDefPreview <cr>
+  map <silent> <leader>tr :TSRefs <cr>
+  map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
+
+  autocmd FileType typescript setl omnifunc=TSComplete
+  let g:nvim_typescript#kind_symbols = {
+      \ 'keyword': 'keyword',
+      \ 'class': '',
+      \ 'interface': 'interface',
+      \ 'script': 'script',
+      \ 'module': '',
+      \ 'local class': 'local class',
+      \ 'type': 'type',
+      \ 'enum': '',
+      \ 'enum member': '',
+      \ 'alias': '',
+      \ 'type parameter': 'type param',
+      \ 'primitive type': 'primitive type',
+      \ 'var': '',
+      \ 'local var': '',
+      \ 'property': '',
+      \ 'let': '',
+      \ 'const': '',
+      \ 'label': 'label',
+      \ 'parameter': 'param',
+      \ 'index': 'index',
+      \ 'function': '',
+      \ 'local function': 'local function',
+      \ 'method': '',
+      \ 'getter': '',
+      \ 'setter': '',
+      \ 'call': 'call',
+      \ 'constructor': '',
+      \}
 " }}}

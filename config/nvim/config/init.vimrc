@@ -113,6 +113,7 @@
 " Typescript {{{2
 	Plug 'leafgarland/typescript-vim'
   Plug 'Quramy/tsuquyomi'
+  Plug 'mhartington/nvim-typescript'
 " }}}2
 
 
