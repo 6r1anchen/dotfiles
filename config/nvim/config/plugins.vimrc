@@ -313,16 +313,26 @@
 
 	let g:ale_linters = {
 				\  'python': ['pylint'],
-				\  'typescript': ['tslint']
+				\  'typescript': ['tsuquyomi', 'tslint']
 				\}
 
 	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 	nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+  let g:ale_sign_error = '⨉'
+  let g:ale_sign_warning = '⚠'
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '']
 	let g:ale_echo_msg_error_str = 'E'
 	let g:ale_echo_msg_warning_str = 'W'
 	let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 	let g:ale_sign_column_always = 1
 	let g:ale_emit_conflict_warnings = 0
+
+	" Python
+	let g:ale_python_pylint_args =  '--max-line-length=99 -d C0111,I0011,R0801'
+
+	" Typescript
+  let g:ale_typescript_tslint_args = '--fix'
 
 " }}}
 
@@ -353,7 +363,6 @@
 	" Python
 	let g:syntastic_python_checkers = ['python', 'pylint']
 	let g:syntastic_python_pylint_post_args = '--max-line-length=99 -d C0111,I0011,R0801'
-	let g:ale_python_pylint_args =  '--max-line-length=99 -d C0111,I0011,R0801'
 
 	" Typescript
   let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
