@@ -311,10 +311,10 @@
 " Ale (async linting) {{{
 " =============================================================================
 
-	" let g:ale_linters = {
-	" 			\  'python': ['pylint'],
-	" 			\  'typescript': ['tslint']
-	" 			\}
+	let g:ale_linters = {
+				\  'python': ['pylint'],
+				\  'typescript': ['tslint']
+				\}
 
 	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 	nmap <silent> <C-j> <Plug>(ale_next_wrap)
