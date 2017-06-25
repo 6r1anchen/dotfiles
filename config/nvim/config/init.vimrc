@@ -83,7 +83,7 @@
 " }}}2
 
 " Task Running {{{2
-	Plug 'w0rp/ale'
+	" Plug 'w0rp/ale'
 	" Plug 'scrooloose/syntastic'
 	Plug 'tmux-plugins/vim-tmux'
 	Plug 'christoomey/vim-tmux-navigator'

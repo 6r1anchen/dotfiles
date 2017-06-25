@@ -30,8 +30,8 @@
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#buffer_idx_mode = 1
   let g:airline_powerline_fonts = 1
-  let g:airline#extensions#neomake#error_symbol='• '
-  let g:airline#extensions#neomake#warning_symbol='•  '
+  let g:airline#extensions#neomake#error_symbol='✗'
+  let g:airline#extensions#neomake#warning_symbol='⚠ '
   let g:airline_symbols.branch = ''
   let g:airline_theme='oceanicnext'
 
@@ -81,6 +81,19 @@
 " =============================================================================
 
 	autocmd! BufWritePost * Neomake
+
+  let g:neomake_typescript_tsc_maker = {
+	\ 'append_file': 0,
+	\ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
+  \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
+	\}
+
+  let g:neomake_typescript_tslint_maker = {
+	\ 'args': ['--fix'],
+  \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
+	\}
+
+  let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
 
 " }}}
 
@@ -311,28 +324,28 @@
 " Ale (async linting) {{{
 " =============================================================================
 
-	let g:ale_linters = {
-				\  'python': ['pylint'],
-				\  'typescript': ['tsuquyomi', 'tslint']
-				\}
-
-	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-	nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-  let g:ale_sign_error = '⨉'
-  let g:ale_sign_warning = '⚠'
-  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '']
-	let g:ale_echo_msg_error_str = 'E'
-	let g:ale_echo_msg_warning_str = 'W'
-	let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-	let g:ale_sign_column_always = 1
-	let g:ale_emit_conflict_warnings = 0
-
-	" Python
-	let g:ale_python_pylint_args =  '--max-line-length=99 -d C0111,I0011,R0801'
-
-	" Typescript
-  let g:ale_typescript_tslint_args = '--fix'
+	" let g:ale_linters = {
+	" 			\  'python': ['pylint'],
+	" 			\  'typescript': ['tsuquyomi', 'tslint']
+	" 			\}
+  "
+	" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+	" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  "
+  " let g:ale_sign_error = '✗'
+  " let g:ale_sign_warning = '⚠'
+  " let g:ale_statusline_format = ['✗ %d', '⚠ %d', '']
+	" let g:ale_echo_msg_error_str = 'E'
+	" let g:ale_echo_msg_warning_str = 'W'
+	" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+	" let g:ale_sign_column_always = 1
+	" let g:ale_emit_conflict_warnings = 0
+  "
+	" " Python
+	" let g:ale_python_pylint_args =  '--max-line-length=99 -d C0111,I0011,R0801'
+  "
+	" " Typescript
+  " let g:ale_typescript_tslint_args = '--fix'
 
 " }}}
 
@@ -342,31 +355,31 @@
   " set statusline+=%{SyntasticStatuslineFlag()}
   " set statusline+=%*
 
-	let g:syntastic_aggregate_errors = 1
-	let g:syntastic_sort_aggregated_errors = 0
-  let g:syntastic_error_symbol = '✗'
-  let g:syntastic_warning_symbol = '⚠'
-  let g:syntastic_check_on_open = 1
-	let g:syntastic_mode_map = {
-	\ 'mode': 'passive',
-	\ 'active_filetypes': ['typescript'],
-	\ 'passive_filetypes': [] }
-
-	map <leader>cc :SyntasticCheck<CR>
-	map <leader>ct :SyntasticToggle<CR>
-	map <leader>cr :SyntasticReset<CR>
-	map <leader>ce :Error<CR>
-	map <leader>cj :lnext<CR>
-	map <leader>ck :lprevious<CR>
-	nnoremap <silent> <F6> :SyntasticCheck<CR>
-
-	" Python
-	let g:syntastic_python_checkers = ['python', 'pylint']
-	let g:syntastic_python_pylint_post_args = '--max-line-length=99 -d C0111,I0011,R0801'
-
-	" Typescript
-  let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
-  let g:syntastic_typescript_tslint_args = "--fix"
+	" let g:syntastic_aggregate_errors = 1
+	" let g:syntastic_sort_aggregated_errors = 0
+  " let g:syntastic_error_symbol = '✗'
+  " let g:syntastic_warning_symbol = '⚠'
+  " let g:syntastic_check_on_open = 1
+	" let g:syntastic_mode_map = {
+	" \ 'mode': 'passive',
+	" \ 'active_filetypes': ['typescript'],
+	" \ 'passive_filetypes': [] }
+  "
+	" map <leader>cc :SyntasticCheck<CR>
+	" map <leader>ct :SyntasticToggle<CR>
+	" map <leader>cr :SyntasticReset<CR>
+	" map <leader>ce :Error<CR>
+	" map <leader>cj :lnext<CR>
+	" map <leader>ck :lprevious<CR>
+	" nnoremap <silent> <F6> :SyntasticCheck<CR>
+  "
+	" " Python
+	" let g:syntastic_python_checkers = ['python', 'pylint']
+	" let g:syntastic_python_pylint_post_args = '--max-line-length=99 -d C0111,I0011,R0801'
+  "
+	" " Typescript
+  " let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+  " let g:syntastic_typescript_tslint_args = "--fix"
 
 " }}}
 
@@ -433,17 +446,6 @@
 
 " mhartington/nvim-typescript {{{
 " =============================================================================
-  let g:neomake_typescript_tsc_maker = {
-	\ 'append_file': 0,
-	\ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
-	\ 'errorformat':
-	\   '%E%f %#(%l\,%c): error %m,' .
-	\   '%E%f %#(%l\,%c): %m,' .
-	\   '%Eerror %m,' .
-	\   '%C%\s%\+%m'
-	\}
-
-  let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
 
   map <silent> <leader>td :TSDoc <cr>
   map <silent> <leader>tt :TSType <cr>
