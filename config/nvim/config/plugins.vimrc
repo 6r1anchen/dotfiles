@@ -251,6 +251,10 @@ call denite#custom#map(
 \ '<denite:do_action:reset>',
 \ 'noremap'
 \)
+
+nnoremap <silent> <leader>gs :Denite gitstatus<CR>
+nnoremap <silent> <leader>gl :Denite gitlog<CR>
+nnoremap <silent> <leader>gla :Denite gitlog:all<CR>
 " )))
 
 " deoplete {{{
