@@ -43,8 +43,6 @@
 	Plug 'Shougo/unite.vim'
 
 	Plug 'Shougo/denite.nvim', { 'commit': 'ffc52df' }
-	Plug 'chemzqm/denite-git'
-	Plug 'pocari/vim-denite-gists'
 " }}}2
 
 " File Navigation {{{2
@@ -79,6 +77,10 @@
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'junegunn/gv.vim'
+	Plug 'chemzqm/denite-git'
+	Plug 'pocari/vim-denite-gists'
+  Plug 'chemzqm/vim-easygit'
+  Plug 'chemzqm/denite-git'
 " }}}2
 
 " Task Running {{{2
