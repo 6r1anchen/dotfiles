@@ -80,6 +80,8 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
 " neomake {{{
 " =============================================================================
 
+let g:neomake_highlight_lines = 1
+
 autocmd! BufWritePost * Neomake
 
 let g:neomake_typescript_tsc_maker = {
