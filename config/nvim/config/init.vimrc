@@ -77,10 +77,10 @@
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'junegunn/gv.vim'
-	Plug 'chemzqm/denite-git'
 	Plug 'pocari/vim-denite-gists'
   Plug 'chemzqm/vim-easygit'
   Plug 'chemzqm/denite-git'
+  Plug 'lambdalisue/gina.vim'
 " }}}2
 
 " Task Running {{{2

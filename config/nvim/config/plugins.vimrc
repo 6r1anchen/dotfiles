@@ -231,7 +231,7 @@ nnoremap <silent> <leader>git :Denite menu:git<CR>
 
 " }}}
 
-" chemzqm/denite-git (((
+" chemzqm/denite-git {{{
 " =============================================================================
 call denite#custom#map(
 \ 'normal',
@@ -254,10 +254,18 @@ call denite#custom#map(
 \ 'noremap'
 \)
 
-nnoremap <silent> <leader>gs :Denite gitstatus<CR>
+" nnoremap <silent> <leader>gs :Denite gitstatus<CR>
 nnoremap <silent> <leader>gl :Denite gitlog<CR>
 nnoremap <silent> <leader>gla :Denite gitlog:all<CR>
-" )))
+" }}}
+
+" lambdalisue/gina.vim {{{
+" =============================================================================
+
+nnoremap <silent> <leader>gs :Gina status -s<CR>
+nnoremap <silent> <leader>gct :Gina commit<CR>
+
+" }}}
 
 " deoplete {{{
 " =============================================================================
