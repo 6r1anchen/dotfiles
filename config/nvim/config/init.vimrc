@@ -42,7 +42,7 @@
 	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'Shougo/unite.vim'
 
-	Plug 'Shougo/denite.nvim', { 'commit': 'ffc52df' }
+	Plug 'Shougo/denite.nvim'
 	Plug 'chemzqm/denite-extra'
 " }}}2
 
@@ -58,6 +58,7 @@
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/tpope-vim-abolish'
+	Plug 'tpope/vim-unimpaired'
 	Plug 'kana/vim-textobj-user'
 	Plug 'sgur/vim-textobj-parameter'
 	Plug 'jasonlong/vim-textobj-css'
