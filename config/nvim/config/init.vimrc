@@ -43,6 +43,7 @@
 	Plug 'Shougo/unite.vim'
 
 	Plug 'Shougo/denite.nvim', { 'commit': 'ffc52df' }
+	Plug 'chemzqm/denite-extra'
 " }}}2
 
 " File Navigation {{{2
