@@ -178,7 +178,7 @@ call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-nnoremap <silent> <c-p> :Denite file_rec<CR>
+nnoremap <silent> <c-p> :DeniteProjectDir file_rec<CR>
 nnoremap <silent> <leader>h :Denite  help<CR>
 nnoremap <silent> <leader>c :Denite colorscheme<CR>
 nnoremap <silent> <leader>b :Denite buffer<CR>
