@@ -84,6 +84,7 @@ nnoremap <Leader>bf :bf<CR>
 nnoremap <Leader>bl :bl<CR>
 nnoremap <Leader>bw :w<CR>:bd<CR>
 nnoremap <Leader>bd :bd!<CR>
+nnoremap <Leader>bda :bufdo bd!<CR>
 " new buffer/tab
 nnoremap <Leader>e :enew<CR>
 tmap <Leader>bd <c-\><c-n>:bp! <BAR> bd! #<CR>
