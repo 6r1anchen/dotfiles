@@ -82,7 +82,7 @@
 	Plug 'pocari/vim-denite-gists'
   Plug 'chemzqm/vim-easygit'
   Plug 'chemzqm/denite-git'
-  Plug 'lambdalisue/gina.vim'
+	Plug 'lambdalisue/vim-gita'
 " }}}2
 
 " Task Running {{{2

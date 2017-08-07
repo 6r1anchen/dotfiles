@@ -266,11 +266,17 @@ nnoremap <silent> <leader>gl :Denite gitlog<CR>
 nnoremap <silent> <leader>gla :Denite gitlog:all<CR>
 " }}}
 
-" lambdalisue/gina.vim {{{
+" lambdalisue/vim-gita {{{
 " =============================================================================
+"
+let g:gita#suppress_warning = 1
 
-nnoremap <silent> <leader>gs :Gina status -s<CR>
-nnoremap <silent> <leader>gt :Gina commit<CR>
+nnoremap <silent> <leader>gs :Gita status<CR>
+augroup mygita
+   autocmd!
+   autocmd FileType gita-commit nmap cc <Plug>(gita-status-open)
+   autocmd FileType gita-status nmap cc <Plug>(gita-commit-open)
+augroup END
 
 " }}}
 
