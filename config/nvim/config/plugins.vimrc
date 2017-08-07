@@ -263,7 +263,7 @@ nnoremap <silent> <leader>gla :Denite gitlog:all<CR>
 " =============================================================================
 
 nnoremap <silent> <leader>gs :Gina status -s<CR>
-nnoremap <silent> <leader>gct :Gina commit<CR>
+nnoremap <silent> <leader>gt :Gina commit<CR>
 
 " }}}
 
