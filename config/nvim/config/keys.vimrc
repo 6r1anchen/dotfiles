@@ -68,6 +68,15 @@ endfunc
 noremap <Leader>src :so $MYVIMRC<CR>
 
 noremap <Leader>ct :checktime<CR>
+
+" non-US keyboard
+nmap ø [
+nmap æ ]
+omap ø [
+omap æ ]
+xmap ø [
+xmap æ ]
+
 " }}}
 
 " Navigation {{{
