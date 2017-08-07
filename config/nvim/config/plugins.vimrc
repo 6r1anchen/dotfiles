@@ -463,6 +463,8 @@ let g:tsuquyomi_disable_quickfix = 1
 " augroup end
 
 map <silent> <leader>ti :TsuquyomiImport <cr>
+map <silent> <Leader>th : <C-u>echo tsuquyomi#hint()<CR>
+
 " }}}
 
 " mhartington/nvim-typescript {{{
