@@ -56,6 +56,7 @@
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
+	Plug 'tpope/tpope-vim-abolish'
 	Plug 'kana/vim-textobj-user'
 	Plug 'sgur/vim-textobj-parameter'
 	Plug 'jasonlong/vim-textobj-css'
