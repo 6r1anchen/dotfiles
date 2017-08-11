@@ -164,7 +164,7 @@ call denite#custom#option('TSDocumentSymbol', {
 \ 'prompt': ' @' ,
 \ 'reversed': 0,
 \})
-call denite#custom#var('file_rec', 'command',['rg', '--threads', '2', '--files', '--glob', '!.git'])
+call denite#custom#var('file_rec', 'command',['rg', '--files', '--glob', '!.git'])
 " call denite#custom#source('file_rec', 'vars', {
 "       \ 'command': [
 "       \ 'ag', '--follow','--nogroup','--hidden', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png'
@@ -178,7 +178,7 @@ call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-nnoremap <silent> <c-p> :Denite file_rec<CR>
+nnoremap <silent> <c-p> :DeniteProjectDir file_rec<CR>
 nnoremap <silent> <leader>h :Denite  help<CR>
 nnoremap <silent> <leader>c :Denite colorscheme<CR>
 nnoremap <silent> <leader>b :Denite buffer<CR>
@@ -189,6 +189,13 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 \ [ '.git/', '.ropeproject/', '__pycache__/',
 \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 call denite#custom#var('menu', 'menus', s:menus)
+
+" }}}
+
+" chemzqm/denite-extra {{{
+" =============================================================================
+
+nnoremap <leader>node :<C-u>Denite node:search<CR>
 
 " }}}
 
@@ -259,11 +266,17 @@ nnoremap <silent> <leader>gl :Denite gitlog<CR>
 nnoremap <silent> <leader>gla :Denite gitlog:all<CR>
 " }}}
 
-" lambdalisue/gina.vim {{{
+" lambdalisue/vim-gita {{{
 " =============================================================================
+"
+let g:gita#suppress_warning = 1
 
-nnoremap <silent> <leader>gs :Gina status -s<CR>
-nnoremap <silent> <leader>gct :Gina commit<CR>
+nnoremap <silent> <leader>gs :Gita status<CR>
+augroup mygita
+   autocmd!
+   autocmd FileType gita-commit nmap cc <Plug>(gita-status-open)
+   autocmd FileType gita-status nmap cc <Plug>(gita-commit-open)
+augroup END
 
 " }}}
 
@@ -463,6 +476,8 @@ let g:tsuquyomi_disable_quickfix = 1
 " augroup end
 
 map <silent> <leader>ti :TsuquyomiImport <cr>
+map <silent> <Leader>th : <C-u>echo tsuquyomi#hint()<CR>
+
 " }}}
 
 " mhartington/nvim-typescript {{{

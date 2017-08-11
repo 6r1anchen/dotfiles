@@ -68,6 +68,15 @@ endfunc
 noremap <Leader>src :so $MYVIMRC<CR>
 
 noremap <Leader>ct :checktime<CR>
+
+" non-US keyboard
+nmap ø [
+nmap æ ]
+omap ø [
+omap æ ]
+xmap ø [
+xmap æ ]
+
 " }}}
 
 " Navigation {{{
@@ -84,6 +93,7 @@ nnoremap <Leader>bf :bf<CR>
 nnoremap <Leader>bl :bl<CR>
 nnoremap <Leader>bw :w<CR>:bd<CR>
 nnoremap <Leader>bd :bd!<CR>
+nnoremap <Leader>bda :bufdo bd!<CR>
 " new buffer/tab
 nnoremap <Leader>e :enew<CR>
 tmap <Leader>bd <c-\><c-n>:bp! <BAR> bd! #<CR>
