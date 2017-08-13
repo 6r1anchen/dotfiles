@@ -77,6 +77,11 @@ omap æ ]
 xmap ø [
 xmap æ ]
 
+" pretty up JSON data
+nnoremap <Leader>j !!python -m json.tool<CR>
+nnoremap <Leader>J :%!python -m json.tool<CR>
+xnoremap <Leader>j :!python -m json.tool<CR>
+
 " }}}
 
 " Navigation {{{
