@@ -80,6 +80,11 @@ xmap æ ]
 " show current file path
 nmap <Leader>pwd :<C-u>echo @%<CR>
 
+" pretty up JSON data
+nnoremap <Leader>j !!python -m json.tool<CR>
+nnoremap <Leader>J :%!python -m json.tool<CR>
+xnoremap <Leader>j :!python -m json.tool<CR>
+
 " }}}
 
 " Navigation {{{

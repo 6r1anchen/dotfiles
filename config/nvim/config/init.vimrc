@@ -96,10 +96,8 @@
 
 " Python {{{2
 	Plug 'bps/vim-textobj-python'
-  Plug 'hynek/vim-python-pep8-indent'
+  Plug 'python-mode/python-mode'
   Plug 'davidhalter/jedi-vim'
-  Plug 'python-rope/ropevim'
-  Plug 'okcompute/vim-python-motions'
   Plug 'metakirby5/codi.vim'
 " }}}2
 
