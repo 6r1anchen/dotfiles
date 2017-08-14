@@ -77,6 +77,9 @@ omap æ ]
 xmap ø [
 xmap æ ]
 
+" show current file path
+nmap <Leader>pwd :<C-u>echo @%<CR>
+
 " }}}
 
 " Navigation {{{
