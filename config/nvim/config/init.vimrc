@@ -44,6 +44,7 @@
 
 	Plug 'Shougo/denite.nvim'
 	Plug 'chemzqm/denite-extra'
+	Plug 'christoomey/vim-tmux-navigator'
 " }}}2
 
 " File Navigation {{{2
