@@ -77,6 +77,9 @@ omap æ ]
 xmap ø [
 xmap æ ]
 
+" show current file path
+nmap <Leader>pwd :<C-u>echo @%<CR>
+
 " pretty up JSON data
 nnoremap <Leader>j !!python -m json.tool<CR>
 nnoremap <Leader>J :%!python -m json.tool<CR>
@@ -117,10 +120,10 @@ nnoremap <Leader>wx :close<CR>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap J <C-W><C-J>
+nnoremap K <C-W><C-K>
+nnoremap L <C-W><C-L>
+nnoremap H <C-W><C-H>
 
 " }}}
 
