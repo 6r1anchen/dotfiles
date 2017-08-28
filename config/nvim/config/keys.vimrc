@@ -120,10 +120,11 @@ nnoremap <Leader>wx :close<CR>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " split navigations
-nnoremap J <C-W><C-J>
-nnoremap K <C-W><C-K>
-nnoremap L <C-W><C-L>
-nnoremap H <C-W><C-H>
+nnoremap <space>j <C-W><C-J>
+nnoremap <space>k <C-W><C-K>
+nnoremap <space>l <C-W><C-L>
+nnoremap <space>h <C-W><C-H>
+nnoremap <space>c <C-W><C-q>
 
 " }}}
 
