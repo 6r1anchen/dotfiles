@@ -379,7 +379,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
 " Git {{{
 " =============================================================================
 
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " }}}
 
@@ -482,6 +482,9 @@ let g:jedi#goto_assignments_command = "<leader>gg"
 let g:jedi#documentation_command = "<leader>gk"
 let g:jedi#usages_command = "<leader>gn"
 let g:jedi#rename_command = "<leader>gr"
+let g:jedi#completions_enabled = 0
+
+let g:pymode_rope = 0
 
 " }}}
 
