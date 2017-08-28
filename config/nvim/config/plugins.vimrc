@@ -379,7 +379,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
 " Git {{{
 " =============================================================================
 
-set signcolumn=yes
+let g:gitgutter_sign_column_always = 1
 
 " }}}
 
