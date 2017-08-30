@@ -6,7 +6,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Or if you have Neovim >= 0.1.5
 if (has("termguicolors"))
-  set termguicolors
+    set termguicolors
 endif
 
 " Theme
@@ -22,7 +22,7 @@ let g:airline_theme='oceanicnext'
 " =============================================================================
 
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#mike#enabled = 0
@@ -54,17 +54,17 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 let g:airline#extensions#tabline#buffer_idx_format = {
-\ '0': '0 ',
-\ '1': '1 ',
-\ '2': '2 ',
-\ '3': '3 ',
-\ '4': '4 ',
-\ '5': '5 ',
-\ '6': '6 ',
-\ '7': '7 ',
-\ '8': '8 ',
-\ '9': '9 ',
-\}
+            \ '0': '0 ',
+            \ '1': '1 ',
+            \ '2': '2 ',
+            \ '3': '3 ',
+            \ '4': '4 ',
+            \ '5': '5 ',
+            \ '6': '6 ',
+            \ '7': '7 ',
+            \ '8': '8 ',
+            \ '9': '9 ',
+            \}
 
 "}}}
 
@@ -85,15 +85,15 @@ let g:neomake_highlight_lines = 1
 " autocmd! BufWritePost * Neomake
 
 let g:neomake_typescript_tsc_maker = {
-\ 'append_file': 0,
-\ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
-\ 'errorformat': '%f(%l\,%c): %m'
-\}
+            \ 'append_file': 0,
+            \ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
+            \ 'errorformat': '%f(%l\,%c): %m'
+            \}
 
 let g:neomake_typescript_tslint_maker = {
-\ 'args': ['--fix'],
-\ 'errorformat': 'ERROR: %f[%l\, %c]: %m',
-\}
+            \ 'args': ['--fix'],
+            \ 'errorformat': 'ERROR: %f[%l\, %c]: %m',
+            \}
 
 let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
 
@@ -102,7 +102,7 @@ autocmd BufWritePost * call neomake#Make(1, [], function('s:Neomake_callback'))
 " Callback for reloading file in buffer when eslint has finished and maybe has
 " autofixed some stuff
 function! s:Neomake_callback(options)
-	checktime
+    checktime
 endfunction
 
 " }}}
@@ -161,18 +161,18 @@ let g:webdevicons_enable_denite = 0
 let s:menus = {}
 
 call denite#custom#option('_', {
-\ 'prompt': '❯',
-\ 'winheight': 10,
-\ 'reversed': 1,
-\ 'highlight_matched_char': 'Underlined',
-\ 'highlight_mode_normal': 'CursorLine',
-\ 'updatetime': 1,
-\ 'auto_resize': 1,
-\})
+            \ 'prompt': '❯',
+            \ 'winheight': 10,
+            \ 'reversed': 1,
+            \ 'highlight_matched_char': 'Underlined',
+            \ 'highlight_mode_normal': 'CursorLine',
+            \ 'updatetime': 1,
+            \ 'auto_resize': 1,
+            \})
 call denite#custom#option('TSDocumentSymbol', {
-\ 'prompt': ' @' ,
-\ 'reversed': 0,
-\})
+            \ 'prompt': ' @' ,
+            \ 'reversed': 0,
+            \})
 call denite#custom#var('file_rec', 'command',['rg', '--files', '--glob', '!.git'])
 " call denite#custom#source('file_rec', 'vars', {
 "       \ 'command': [
@@ -195,8 +195,8 @@ nnoremap <silent> <leader>a :Denite grep:::!<CR>
 call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
 call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-\ [ '.git/', '.ropeproject/', '__pycache__/',
-\   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+            \ [ '.git/', '.ropeproject/', '__pycache__/',
+            \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 call denite#custom#var('menu', 'menus', s:menus)
 
 " }}}
@@ -211,65 +211,65 @@ nnoremap <leader>node :<C-u>Denite node:search<CR>
 " christoomey/vim-tmux-navigator {{{
 " =============================================================================
 if exists('$TMUX')
-  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-    let previous_winnr = winnr()
-    silent! execute "wincmd " . a:wincmd
-    if previous_winnr == winnr()
-      call system("tmux select-pane -" . a:tmuxdir)
-      redraw!
-    endif
-  endfunction
+    function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+        let previous_winnr = winnr()
+        silent! execute "wincmd " . a:wincmd
+        if previous_winnr == winnr()
+            call system("tmux select-pane -" . a:tmuxdir)
+            redraw!
+        endif
+    endfunction
 
-  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+    let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+    let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+    let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
 
-  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+    nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+    nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+    nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+    nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
 else
-  map <C-h> <C-w>h
-  map <C-j> <C-w>j
-  map <C-k> <C-w>k
-  map <C-l> <C-w>l
+    map <C-h> <C-w>h
+    map <C-j> <C-w>j
+    map <C-k> <C-w>k
+    map <C-l> <C-w>l
 endif
 " }}}
 
 " Git from denite {{{
 " =============================================================================
 let s:menus.git = {
-\ 'description' : 'Fugitive interface',
-\}
+            \ 'description' : 'Fugitive interface',
+            \}
 let s:menus.git.command_candidates = [
-\[' git status', 'Gstatus'],
-\[' git diff', 'Gvdiff'],
-\[' git commit', 'Gcommit'],
-\[' git stage/add', 'Gwrite'],
-\[' git checkout', 'Gread'],
-\[' git rm', 'Gremove'],
-\[' git cd', 'Gcd'],
-\[' git push', 'exe "Git! push " input("remote/branch: ")'],
-\[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
-\[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
-\[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
-\[' git fetch', 'Gfetch'],
-\[' git merge', 'Gmerge'],
-\[' git browse', 'Gbrowse'],
-\[' git head', 'Gedit HEAD^'],
-\[' git parent', 'edit %:h'],
-\[' git log commit buffers', 'Glog --'],
-\[' git log current file', 'Glog -- %'],
-\[' git log last n commits', 'exe "Glog -" input("num: ")'],
-\[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
-\[' git log until date', 'exe "Glog --until=" input("day: ")'],
-\[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
-\[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
-\[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
-\[' git mv', 'exe "Gmove " input("destination: ")'],
-\[' git grep',  'exe "Ggrep " input("string: ")'],
-\[' git prompt', 'exe "Git! " input("command: ")'],
-\] " Append ' --' after log to get commit info commit buffers
+            \[' git status', 'Gstatus'],
+            \[' git diff', 'Gvdiff'],
+            \[' git commit', 'Gcommit'],
+            \[' git stage/add', 'Gwrite'],
+            \[' git checkout', 'Gread'],
+            \[' git rm', 'Gremove'],
+            \[' git cd', 'Gcd'],
+            \[' git push', 'exe "Git! push " input("remote/branch: ")'],
+            \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
+            \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
+            \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
+            \[' git fetch', 'Gfetch'],
+            \[' git merge', 'Gmerge'],
+            \[' git browse', 'Gbrowse'],
+            \[' git head', 'Gedit HEAD^'],
+            \[' git parent', 'edit %:h'],
+            \[' git log commit buffers', 'Glog --'],
+            \[' git log current file', 'Glog -- %'],
+            \[' git log last n commits', 'exe "Glog -" input("num: ")'],
+            \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
+            \[' git log until date', 'exe "Glog --until=" input("day: ")'],
+            \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
+            \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
+            \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
+            \[' git mv', 'exe "Gmove " input("destination: ")'],
+            \[' git grep',  'exe "Ggrep " input("string: ")'],
+            \[' git prompt', 'exe "Git! " input("command: ")'],
+            \] " Append ' --' after log to get commit info commit buffers
 
 nnoremap <silent> <leader>git :Denite menu:git<CR>
 
@@ -297,25 +297,25 @@ nnoremap <space>go :Git checkout<Space>
 " chemzqm/denite-git {{{
 " =============================================================================
 call denite#custom#map(
-\ 'normal',
-\ 'a',
-\ '<denite:do_action:add>',
-\ 'noremap'
-\)
+            \ 'normal',
+            \ 'a',
+            \ '<denite:do_action:add>',
+            \ 'noremap'
+            \)
 
 call denite#custom#map(
-\ 'normal',
-\ 'd',
-\ '<denite:do_action:delete>',
-\ 'noremap'
-\)
+            \ 'normal',
+            \ 'd',
+            \ '<denite:do_action:delete>',
+            \ 'noremap'
+            \)
 
 call denite#custom#map(
-\ 'normal',
-\ 'r',
-\ '<denite:do_action:reset>',
-\ 'noremap'
-\)
+            \ 'normal',
+            \ 'r',
+            \ '<denite:do_action:reset>',
+            \ 'noremap'
+            \)
 
 " nnoremap <silent> <leader>gs :Denite gitstatus<CR>
 nnoremap <silent> <leader>gl :Denite gitlog<CR>
@@ -329,9 +329,9 @@ let g:gita#suppress_warning = 1
 
 nnoremap <silent> <leader>gs :Gita status<CR>
 augroup mygita
-   autocmd!
-   autocmd FileType gita-commit nmap cc <Plug>(gita-status-open)
-   autocmd FileType gita-status nmap cc <Plug>(gita-commit-open)
+    autocmd!
+    autocmd FileType gita-commit nmap cc <Plug>(gita-status-open)
+    autocmd FileType gita-status nmap cc <Plug>(gita-commit-open)
 augroup END
 
 " }}}
@@ -348,10 +348,10 @@ set completeopt-=preview
 autocmd CompleteDone * pclose
 
 function! Multiple_cursors_before()
-  let b:deoplete_disable_auto_complete=2
+    let b:deoplete_disable_auto_complete=2
 endfunction
 function! Multiple_cursors_after()
-  let b:deoplete_disable_auto_complete=0
+    let b:deoplete_disable_auto_complete=0
 endfunction
 let g:deoplete#file#enable_buffer_path=1
 
@@ -365,9 +365,9 @@ call deoplete#custom#set('neosnippet', 'mark', '')
 
 call deoplete#custom#set('typescript',  'rank', 630)
 function! Preview_func()
-  if &pvw
-    setlocal nonumber norelativenumber
-  endif
+    if &pvw
+        setlocal nonumber norelativenumber
+    endif
 endfunction
 autocmd WinEnter * call Preview_func()
 let g:deoplete#ignore_sources = {}
@@ -384,9 +384,9 @@ let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on
 
 "Add extra filetypes
 let g:tern#filetypes = [
-      \ 'jsx',
-      \ 'javascript.jsx'
-      \]
+            \ 'jsx',
+            \ 'javascript.jsx'
+            \]
 
 " Use tern_for_vim.
 let g:tern#command = ["tern"]
@@ -562,32 +562,32 @@ map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <c
 
 autocmd FileType typescript setl omnifunc=TSComplete
 let g:nvim_typescript#kind_symbols = {
-\ 'keyword': 'keyword',
-\ 'class': '',
-\ 'interface': 'interface',
-\ 'script': 'script',
-\ 'module': '',
-\ 'local class': 'local class',
-\ 'type': 'type',
-\ 'enum': '',
-\ 'enum member': '',
-\ 'alias': '',
-\ 'type parameter': 'type param',
-\ 'primitive type': 'primitive type',
-\ 'var': '',
-\ 'local var': '',
-\ 'property': '',
-\ 'let': '',
-\ 'const': '',
-\ 'label': 'label',
-\ 'parameter': 'param',
-\ 'index': 'index',
-\ 'function': '',
-\ 'local function': 'local function',
-\ 'method': '',
-\ 'getter': '',
-\ 'setter': '',
-\ 'call': 'call',
-\ 'constructor': '',
-\}
+            \ 'keyword': 'keyword',
+            \ 'class': '',
+            \ 'interface': 'interface',
+            \ 'script': 'script',
+            \ 'module': '',
+            \ 'local class': 'local class',
+            \ 'type': 'type',
+            \ 'enum': '',
+            \ 'enum member': '',
+            \ 'alias': '',
+            \ 'type parameter': 'type param',
+            \ 'primitive type': 'primitive type',
+            \ 'var': '',
+            \ 'local var': '',
+            \ 'property': '',
+            \ 'let': '',
+            \ 'const': '',
+            \ 'label': 'label',
+            \ 'parameter': 'param',
+            \ 'index': 'index',
+            \ 'function': '',
+            \ 'local function': 'local function',
+            \ 'method': '',
+            \ 'getter': '',
+            \ 'setter': '',
+            \ 'call': 'call',
+            \ 'constructor': '',
+            \}
 " }}}
