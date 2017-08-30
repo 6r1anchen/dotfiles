@@ -82,7 +82,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
 
 let g:neomake_highlight_lines = 1
 
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 
 let g:neomake_typescript_tsc_maker = {
 \ 'append_file': 0,
@@ -96,6 +96,14 @@ let g:neomake_typescript_tslint_maker = {
 \}
 
 let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
+
+autocmd BufWritePost * call neomake#Make(1, [], function('s:Neomake_callback'))
+
+" Callback for reloading file in buffer when eslint has finished and maybe has
+" autofixed some stuff
+function! s:Neomake_callback(options)
+	checktime
+endfunction
 
 " }}}
 
@@ -128,6 +136,7 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 " =============================================================================
 
 map <silent> - :NERDTreeToggle<CR>
+map <leader>r :NERDTreeFind<CR>
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
