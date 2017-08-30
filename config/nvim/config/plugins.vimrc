@@ -82,7 +82,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
 
 let g:neomake_highlight_lines = 1
 
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 
 let g:neomake_typescript_tsc_maker = {
 \ 'append_file': 0,
@@ -96,6 +96,14 @@ let g:neomake_typescript_tslint_maker = {
 \}
 
 let g:neomake_typescript_enabled_makers = ['tsc', 'tslint']
+
+autocmd BufWritePost * call neomake#Make(1, [], function('s:Neomake_callback'))
+
+" Callback for reloading file in buffer when eslint has finished and maybe has
+" autofixed some stuff
+function! s:Neomake_callback(options)
+	checktime
+endfunction
 
 " }}}
 
@@ -128,6 +136,7 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 " =============================================================================
 
 map <silent> - :NERDTreeToggle<CR>
+map <leader>r :NERDTreeFind<CR>
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
@@ -266,6 +275,25 @@ nnoremap <silent> <leader>git :Denite menu:git<CR>
 
 " }}}
 
+" tpope/vim-fugitive {{{
+" =============================================================================
+
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+
+" }}}
+
 " chemzqm/denite-git {{{
 " =============================================================================
 call denite#custom#map(
@@ -379,7 +407,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
 " Git {{{
 " =============================================================================
 
-set signcolumn=yes
+let g:gitgutter_sign_column_always = 1
 
 " }}}
 
