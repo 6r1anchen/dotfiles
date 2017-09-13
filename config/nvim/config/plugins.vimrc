@@ -30,8 +30,9 @@ set hidden
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#neomake#error_symbol='✗'
-let g:airline#extensions#neomake#warning_symbol='⚠ '
+let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#neomake#error_symbol='✗'
+" let g:airline#extensions#neomake#warning_symbol='⚠ '
 let g:airline_symbols.branch = ''
 let g:airline_theme='oceanicnext'
 
@@ -80,7 +81,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
 " neomake {{{
 " =============================================================================
 
-let g:neomake_highlight_lines = 1
+" let g:neomake_highlight_lines = 1
 
 " autocmd! BufWritePost * Neomake
 
@@ -339,58 +340,60 @@ augroup END
 " deoplete {{{
 " =============================================================================
 
-" enable deoplete
-let g:deoplete#enable_at_startup = 1
-let g:echodoc_enable_at_startup=1
-set splitbelow
-set completeopt+=noselect
-set completeopt-=preview
-autocmd CompleteDone * pclose
-
-function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete=2
-endfunction
-function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete=0
-endfunction
-let g:deoplete#file#enable_buffer_path=1
-
-call deoplete#custom#set('buffer', 'mark', 'ℬ')
-call deoplete#custom#set('ternjs', 'mark', '')
-call deoplete#custom#set('omni', 'mark', '⌾')
-call deoplete#custom#set('file', 'mark', 'file')
-call deoplete#custom#set('jedi', 'mark', '')
-call deoplete#custom#set('typescript', 'mark', '')
-call deoplete#custom#set('neosnippet', 'mark', '')
-
-call deoplete#custom#set('typescript',  'rank', 630)
-function! Preview_func()
-    if &pvw
-        setlocal nonumber norelativenumber
-    endif
-endfunction
-autocmd WinEnter * call Preview_func()
-let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources._ = ['around']
-
+" " enable deoplete
+" let g:deoplete#enable_at_startup = 1
+" let g:echodoc_enable_at_startup=1
+" set splitbelow
+" set completeopt+=noselect
+" set completeopt-=preview
+" autocmd CompleteDone * pclose
+"
+" function! Multiple_cursors_before()
+"     let b:deoplete_disable_auto_complete = 1
+" endfunction
+"
+" function! Multiple_cursors_after()
+"     let b:deoplete_disable_auto_complete = 0
+" endfunction
+"
+" let g:deoplete#file#enable_buffer_path=1
+"
+" call deoplete#custom#set('buffer', 'mark', 'ℬ')
+" call deoplete#custom#set('ternjs', 'mark', '')
+" call deoplete#custom#set('omni', 'mark', '⌾')
+" call deoplete#custom#set('file', 'mark', 'file')
+" call deoplete#custom#set('jedi', 'mark', '')
+" call deoplete#custom#set('typescript', 'mark', '')
+" call deoplete#custom#set('neosnippet', 'mark', '')
+"
+" call deoplete#custom#set('typescript',  'rank', 630)
+" function! Preview_func()
+"     if &pvw
+"         setlocal nonumber norelativenumber
+"     endif
+" endfunction
+" autocmd WinEnter * call Preview_func()
+" let g:deoplete#ignore_sources = {}
+" let g:deoplete#ignore_sources._ = ['around']
+"
 " }}}
 
 " deoplete-ternjs {{{
 " =============================================================================
 
-" Use deoplete.
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-
-"Add extra filetypes
-let g:tern#filetypes = [
-            \ 'jsx',
-            \ 'javascript.jsx'
-            \]
-
-" Use tern_for_vim.
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+" " Use deoplete.
+" let g:tern_request_timeout = 1
+" let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+"
+" "Add extra filetypes
+" let g:tern#filetypes = [
+"             \ 'jsx',
+"             \ 'javascript.jsx'
+"             \]
+"
+" " Use tern_for_vim.
+" let g:tern#command = ["tern"]
+" let g:tern#arguments = ["--persistent"]
 
 " }}}
 
@@ -406,37 +409,31 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
 
 " Git {{{
 " =============================================================================
-
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " }}}
 
 " Ale (async linting) {{{
 " =============================================================================
 
-" let g:ale_linters = {
-" 			\  'python': ['pylint'],
-" 			\  'typescript': ['tsuquyomi', 'tslint']
-" 			\}
-"
-" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-" nmap <silent> <C-j> <Plug>(ale_next_wrap)
-"
-" let g:ale_sign_error = '✗'
-" let g:ale_sign_warning = '⚠'
-" let g:ale_statusline_format = ['✗ %d', '⚠ %d', '']
-" let g:ale_echo_msg_error_str = 'E'
-" let g:ale_echo_msg_warning_str = 'W'
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" let g:ale_sign_column_always = 1
-" let g:ale_emit_conflict_warnings = 0
-"
-" " Python
-" let g:ale_python_pylint_args =  '--max-line-length=99 -d C0111,I0011,R0801'
-"
-" " Typescript
-" let g:ale_typescript_tslint_args = '--fix'
+let g:ale_linters = {}
+let g:ale_linters.python = ['pylint']
+let g:ale_linters.haskell = ['stack-ghc-mod', 'hlint']
 
+nmap <silent> <C-k> <Plug>(ale_previous)
+nmap <silent> <C-j> <Plug>(ale_next)
+
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = ['✗ %d', '⚠ %d', '']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_column_always = 1
+let g:ale_emit_conflict_warnings = 0
+
+" Typescript
+" let g:ale_typescript_tslint_args = '--fix'
 " }}}
 
 " syntastic {{{
@@ -591,3 +588,73 @@ let g:nvim_typescript#kind_symbols = {
             \ 'constructor': '',
             \}
 " }}}
+
+" neovimhaskell/haskell-vim {{{
+" =============================================================================
+
+" Align 'then' two spaces after 'if'
+let g:haskell_indent_if = 2
+" Indent 'where' block two spaces under previous body
+let g:haskell_indent_before_where = 2
+" Allow a second case indent style (see haskell-vim README)
+let g:haskell_indent_case_alternative = 1
+" Only next under 'let' if there's an equals sign
+let g:haskell_indent_let_no_in = 0
+
+" hindent & stylish-haskell {{{
+" =============================================================================
+
+" Indenting on save is too aggressive for me
+let g:hindent_on_save = 0
+
+" Helper function, called below with mappings
+function! HaskellFormat(which) abort
+  if a:which ==# 'hindent' || a:which ==# 'both'
+    :Hindent
+  endif
+  if a:which ==# 'stylish' || a:which ==# 'both'
+    silent! exe 'undojoin'
+    silent! exe 'keepjumps %!stylish-haskell'
+  endif
+endfunction
+
+" Key bindings
+augroup haskellStylish
+  au!
+  " Just hindent
+  au FileType haskell nnoremap <leader>hi :Hindent<CR>
+  " Just stylish-haskell
+  au FileType haskell nnoremap <leader>hs :call HaskellFormat('stylish')<CR>
+  " First hindent, then stylish-haskell
+  au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
+augroup END
+
+" parsonsmatt/intero-neovim {{{
+" =============================================================================
+
+" Prefer starting Intero manually (faster startup times)
+let g:intero_start_immediately = 0
+" Use ALE (works even when not using Intero)
+let g:intero_use_neomake = 0
+
+augroup interoMaps
+  au!
+
+  au FileType haskell nnoremap <silent> <leader>io :InteroOpen<CR>
+  au FileType haskell nnoremap <silent> <leader>iov :InteroOpen<CR><C-W>H
+  au FileType haskell nnoremap <silent> <leader>ih :InteroHide<CR>
+  au FileType haskell nnoremap <silent> <leader>is :InteroStart<CR>
+  au FileType haskell nnoremap <silent> <leader>ik :InteroKill<CR>
+
+  au FileType haskell nnoremap <silent> <leader>wr :w \| :InteroReload<CR>
+  au FileType haskell nnoremap <silent> <leader>il :InteroLoadCurrentModule<CR>
+  au FileType haskell nnoremap <silent> <leader>if :InteroLoadCurrentFile<CR>
+
+  au FileType haskell map <leader>t <Plug>InteroGenericType
+  au FileType haskell map <leader>T <Plug>InteroType
+  au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
+
+  au FileType haskell nnoremap <silent> <leader>jd :InteroGoToDef<CR>
+  au FileType haskell nnoremap <silent> <leader>iu :InteroUses<CR>
+  au FileType haskell nnoremap <leader>ist :InteroSetTargets<SPACE>
+augroup END

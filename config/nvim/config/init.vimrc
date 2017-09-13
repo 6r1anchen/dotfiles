@@ -71,10 +71,11 @@ Plug 'honza/vim-snippets'
 " }}}2
 
 " Autocomplete {{{2
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn add global tern' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-jedi'
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn add global tern' }
 " }}}2
 
 " Git {{{2
@@ -88,7 +89,7 @@ Plug 'lambdalisue/vim-gita'
 " }}}2
 
 " Task Running {{{2
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 " Plug 'scrooloose/syntastic'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
@@ -100,6 +101,12 @@ Plug 'bps/vim-textobj-python'
 Plug 'python-mode/python-mode'
 Plug 'davidhalter/jedi-vim'
 Plug 'metakirby5/codi.vim'
+" }}}2
+
+" Haskell {{{2
+Plug 'neovimhaskell/haskell-vim'
+Plug 'alx741/vim-hindent'
+Plug 'parsonsmatt/intero-neovim'
 " }}}2
 
 " Javascript {{{2
