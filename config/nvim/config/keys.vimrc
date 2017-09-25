@@ -147,7 +147,7 @@ nnoremap <Leader>fk zk
 
 " File managment {{{
 " =============================================================================
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>x :x<CR>
+nnoremap <space>w :w<CR>
+nnoremap <space>x :x<CR>
 
 " }}}

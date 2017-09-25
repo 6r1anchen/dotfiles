@@ -155,6 +155,19 @@ let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
 
 " }}}
 
+" Lokaltog/vim-easymotion {{{
+" =============================================================================
+map f <Plug>(easymotion-prefix)
+map ff <Plug>(easymotion-s)
+map fs <Plug>(easymotion-f)
+map fl <Plug>(easymotion-lineforward)
+map fj <Plug>(easymotion-j)
+map fk <Plug>(easymotion-k)
+map fh <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_smartcase = 1
+" }}}
+
 " Denite {{{
 " =============================================================================
 
