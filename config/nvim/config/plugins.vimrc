@@ -671,3 +671,13 @@ augroup interoMaps
   au FileType haskell nnoremap <silent> <leader>iu :InteroUses<CR>
   au FileType haskell nnoremap <leader>ist :InteroSetTargets<SPACE>
 augroup END
+
+" Valloric/YouCompleteMe {{{
+" =============================================================================
+if has('python3')
+    let g:loaded_youcompleteme = 1 " disables loading it! doesnt support python3
+    let g:jedi#force_py_version = 3
+    let g:pymode_python = 'python3'"
+endif
+" }}}
+" =============================================================================
