@@ -28,7 +28,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#mike#enabled = 0
 set hidden
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 " let g:airline#extensions#neomake#error_symbol='✗'
