@@ -41,10 +41,10 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Shougo/unite.vim'
-
 Plug 'Shougo/denite.nvim'
 Plug 'chemzqm/denite-extra'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'yssl/QFEnter'
 " }}}2
 
 " File Navigation {{{2
