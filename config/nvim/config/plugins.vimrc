@@ -613,6 +613,7 @@ let g:haskell_indent_before_where = 2
 let g:haskell_indent_case_alternative = 1
 " Only next under 'let' if there's an equals sign
 let g:haskell_indent_let_no_in = 0
+" }}}
 
 " hindent & stylish-haskell {{{
 " =============================================================================
@@ -641,6 +642,7 @@ augroup haskellStylish
   " First hindent, then stylish-haskell
   au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
 augroup END
+" }}}
 
 " parsonsmatt/intero-neovim {{{
 " =============================================================================
@@ -671,6 +673,7 @@ augroup interoMaps
   au FileType haskell nnoremap <silent> <leader>iu :InteroUses<CR>
   au FileType haskell nnoremap <leader>ist :InteroSetTargets<SPACE>
 augroup END
+" }}}
 
 " Valloric/YouCompleteMe {{{
 " =============================================================================
