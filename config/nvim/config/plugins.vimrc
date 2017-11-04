@@ -563,14 +563,19 @@ map <silent> <Leader>th : <C-u>echo tsuquyomi#hint()<CR>
 " mhartington/nvim-typescript {{{
 " =============================================================================
 
-map <silent> <leader>td :TSDoc <cr>
-map <silent> <leader>tt :TSType <cr>
-map <silent> <leader>gd :TSDef <cr>
-map <silent> <leader>gp :TSDefPreview <cr>
-map <silent> <leader>tr :TSRefs <cr>
-map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
+augroup nvimTypescriptMaps
+  au!
 
-autocmd FileType typescript setl omnifunc=TSComplete
+    au FileType typescript nmap <leader>td :TSDoc <cr>
+    au FileType typescript nmap <leader>tt :TSType <cr>
+    au FileType typescript nmap <leader>gd :TSDef <cr>
+    au FileType typescript nmap <leader>gp :TSDefPreview <cr>
+    au FileType typescript nmap <leader>tr :TSRefs <cr>
+    au FileType typescript nmap <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
+    au FileType typescript setl omnifunc=TSComplete
+
+augroup END
+
 let g:nvim_typescript#kind_symbols = {
             \ 'keyword': 'keyword',
             \ 'class': '',
@@ -683,4 +688,28 @@ if has('python3')
     let g:pymode_python = 'python3'"
 endif
 " }}}
+
+" elmcast/elm-vim {{{
+" =============================================================================
+let g:elm_format_autosave = 1
+
+let g:elm_setup_keybindings = 0
+
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
+
+augroup elmMaps
+  au!
+
+  au FileType elm nmap <leader>em <Plug>(elm-make)
+  au FileType elm nmap <leader>eb <Plug>(elm-make-main)
+  au FileType elm nmap <leader>et <Plug>(elm-test)
+  au FileType elm nmap <leader>er <Plug>(elm-repl)
+  au FileType elm nmap <leader>ee <Plug>(elm-error-detail)
+  au FileType elm nmap <leader>ed <Plug>(elm-show-docs)
+  au FileType elm nmap <leader>ew <Plug>(elm-browse-docs)
+augroup END
+" }}}
+
 " =============================================================================

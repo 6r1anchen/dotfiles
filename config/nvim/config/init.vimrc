@@ -126,6 +126,14 @@ Plug 'Quramy/tsuquyomi'
 Plug 'mhartington/nvim-typescript'
 " }}}2
 
+" ReasonML {{{2
+Plug 'reasonml-editor/vim-reason'
+" }}}2
+
+" Elm {{{2
+" Plug 'lambdatoast/elm.vim'
+Plug 'elmcast/elm-vim'
+" }}}2
 
 " HTML {{{2
 Plug 'mattn/emmet-vim', { 'for': 'html' }
