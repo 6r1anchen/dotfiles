@@ -353,41 +353,41 @@ augroup END
 " deoplete {{{
 " =============================================================================
 
-" " enable deoplete
-" let g:deoplete#enable_at_startup = 1
-" let g:echodoc_enable_at_startup=1
-" set splitbelow
-" set completeopt+=noselect
-" set completeopt-=preview
-" autocmd CompleteDone * pclose
-"
-" function! Multiple_cursors_before()
-"     let b:deoplete_disable_auto_complete = 1
-" endfunction
-"
-" function! Multiple_cursors_after()
-"     let b:deoplete_disable_auto_complete = 0
-" endfunction
-"
-" let g:deoplete#file#enable_buffer_path=1
-"
-" call deoplete#custom#set('buffer', 'mark', 'ℬ')
-" call deoplete#custom#set('ternjs', 'mark', '')
-" call deoplete#custom#set('omni', 'mark', '⌾')
-" call deoplete#custom#set('file', 'mark', 'file')
-" call deoplete#custom#set('jedi', 'mark', '')
-" call deoplete#custom#set('typescript', 'mark', '')
-" call deoplete#custom#set('neosnippet', 'mark', '')
-"
-" call deoplete#custom#set('typescript',  'rank', 630)
-" function! Preview_func()
-"     if &pvw
-"         setlocal nonumber norelativenumber
-"     endif
-" endfunction
-" autocmd WinEnter * call Preview_func()
-" let g:deoplete#ignore_sources = {}
-" let g:deoplete#ignore_sources._ = ['around']
+" enable deoplete
+let g:deoplete#enable_at_startup = 1
+let g:echodoc_enable_at_startup=1
+set splitbelow
+set completeopt+=noselect
+set completeopt-=preview
+autocmd CompleteDone * pclose
+
+function! Multiple_cursors_before()
+    let b:deoplete_disable_auto_complete = 1
+endfunction
+
+function! Multiple_cursors_after()
+    let b:deoplete_disable_auto_complete = 0
+endfunction
+
+let g:deoplete#file#enable_buffer_path=1
+
+call deoplete#custom#set('buffer', 'mark', 'ℬ')
+call deoplete#custom#set('ternjs', 'mark', '')
+call deoplete#custom#set('omni', 'mark', '⌾')
+call deoplete#custom#set('file', 'mark', 'file')
+call deoplete#custom#set('jedi', 'mark', '')
+call deoplete#custom#set('typescript', 'mark', '')
+call deoplete#custom#set('neosnippet', 'mark', '')
+
+call deoplete#custom#set('typescript',  'rank', 630)
+function! Preview_func()
+    if &pvw
+        setlocal nonumber norelativenumber
+    endif
+endfunction
+autocmd WinEnter * call Preview_func()
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources._ = ['around']
 "
 " }}}
 
@@ -572,7 +572,7 @@ augroup nvimTypescriptMaps
     au FileType typescript nmap <leader>gp :TSDefPreview <cr>
     au FileType typescript nmap <leader>tr :TSRefs <cr>
     au FileType typescript nmap <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
-    au FileType typescript setl omnifunc=TSComplete
+    " au FileType typescript setl omnifunc=TSComplete
 
 augroup END
 
@@ -680,24 +680,11 @@ augroup interoMaps
 augroup END
 " }}}
 
-" Valloric/YouCompleteMe {{{
-" =============================================================================
-if has('python3')
-    let g:loaded_youcompleteme = 1 " disables loading it! doesnt support python3
-    let g:jedi#force_py_version = 3
-    let g:pymode_python = 'python3'"
-endif
-" }}}
-
 " elmcast/elm-vim {{{
 " =============================================================================
 let g:elm_format_autosave = 1
 
 let g:elm_setup_keybindings = 0
-
-let g:ycm_semantic_triggers = {
-     \ 'elm' : ['.'],
-     \}
 
 augroup elmMaps
   au!

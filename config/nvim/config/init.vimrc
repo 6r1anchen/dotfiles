@@ -71,8 +71,8 @@ Plug 'honza/vim-snippets'
 " }}}2
 
 " Autocomplete {{{2
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'zchee/deoplete-jedi'
 " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn add global tern' }
