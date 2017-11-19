@@ -107,6 +107,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'alx741/vim-hindent'
 Plug 'parsonsmatt/intero-neovim'
+Plug 'eagletmt/neco-ghc'
 " }}}2
 
 " Javascript {{{2

@@ -680,6 +680,13 @@ augroup interoMaps
 augroup END
 " }}}
 
+" eagletmt/neco-ghc {{{
+" =============================================================================
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" }}}
+
 " elmcast/elm-vim {{{
 " =============================================================================
 let g:elm_format_autosave = 1
