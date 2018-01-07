@@ -148,6 +148,12 @@ Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
 " }}}2
 
+" Snippets {{{2
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'VimSnippets/vim-react-snippets'
+" }}}2
+
 call plug#end()
 
 " }}}1

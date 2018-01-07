@@ -714,4 +714,11 @@ augroup elmMaps
 augroup END
 " }}}
 
+" SirVer/ultisnips {{{
+" =============================================================================
+
+" Trigger configuration (Optional)
+let g:UltiSnipsExpandTrigger="<tab>"
+
+" }}}
 " =============================================================================
