@@ -141,7 +141,7 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
 Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'mattn/emmet-vim'
+Plug 'rstacruz/sparkup'
 " }}}2
 
 " CSS {{{2
