@@ -14,6 +14,7 @@ call plug#begin("~/.config/nvim/plugged")
 " Color Themes {{{2
 Plug 'mhartington/oceanic-next'
 Plug 'w0ng/vim-hybrid'
+Plug 'trevordmiller/nova-vim'
 " }}}
 
 " UI {{{2
@@ -74,13 +75,15 @@ Plug 'honza/vim-snippets'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'zchee/deoplete-jedi'
-" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn add global tern' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn add global tern' }
 " }}}2
 
 " Git {{{2
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rhubarb'
+Plug 'idanarye/vim-merginal'
 Plug 'junegunn/gv.vim'
 Plug 'pocari/vim-denite-gists'
 Plug 'chemzqm/vim-easygit'
