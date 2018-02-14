@@ -11,10 +11,12 @@ endif
 
 " Theme
 syntax enable
-colorscheme OceanicNext
+" colorscheme OceanicNext
+colorscheme nova
+highlight CursorLineNr guifg=#f2c38f
 
 set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13
-let g:airline_theme='oceanicnext'
+" let g:airline_theme='oceanicnext'
 
 " }}}
 
@@ -402,19 +404,30 @@ let g:deoplete#ignore_sources._ = ['around']
 " deoplete-ternjs {{{
 " =============================================================================
 
-" " Use deoplete.
-" let g:tern_request_timeout = 1
-" let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-"
-" "Add extra filetypes
-" let g:tern#filetypes = [
-"             \ 'jsx',
-"             \ 'javascript.jsx'
-"             \]
-"
-" " Use tern_for_vim.
-" let g:tern#command = ["tern"]
-" let g:tern#arguments = ["--persistent"]
+let g:tern_show_signature_in_pum = 1
+let g:deoplete#sources#ternjs#timeout = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#filetypes = [
+  \ 'js',
+  \ 'javascript',
+  \ 'vue',
+  \ 'jsx',
+  \ 'javascript.jsx'
+\ ]
+
+" }}}
+
+" ternjs/tern_for_vim {{{
+" =============================================================================
+
+let g:tern_show_argument_hints = 'on_move'
+
+au FileType javascript nmap <leader>td :TernDoc <cr>
+au FileType javascript nmap <leader>tt :TernType <cr>
+au FileType javascript nmap <leader>gd :TSDef <cr>
+au FileType javascript nmap <leader>tr :TernRefs <cr>
+au FileType javascript nmap <leader>tR :TernRename <cr>
 
 " }}}
 
