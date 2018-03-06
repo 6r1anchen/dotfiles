@@ -404,6 +404,7 @@ let g:deoplete#ignore_sources._ = ['around']
 " deoplete-ternjs {{{
 " =============================================================================
 
+let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
 let g:deoplete#sources#ternjs#timeout = 1
 let g:deoplete#sources#ternjs#types = 1
@@ -416,18 +417,8 @@ let g:deoplete#sources#ternjs#filetypes = [
   \ 'javascript.jsx'
 \ ]
 
-" }}}
-
-" ternjs/tern_for_vim {{{
-" =============================================================================
-
-let g:tern_show_argument_hints = 'on_move'
-
-au FileType javascript nmap <leader>td :TernDoc <cr>
-au FileType javascript nmap <leader>tt :TernType <cr>
-au FileType javascript nmap <leader>gd :TSDef <cr>
-au FileType javascript nmap <leader>tr :TernRefs <cr>
-au FileType javascript nmap <leader>tR :TernRename <cr>
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 
 " }}}
 
@@ -451,6 +442,7 @@ set signcolumn=yes
 " =============================================================================
 
 let g:ale_linters = {}
+let g:ale_linters.javascript = ['eslint', 'flow']
 let g:ale_linters.python = ['pylint']
 let g:ale_linters.haskell = ['stack-ghc-mod', 'hlint']
 
@@ -458,7 +450,9 @@ nmap <silent> <C-k> <Plug>(ale_previous)
 nmap <silent> <C-j> <Plug>(ale_next)
 
 let g:ale_sign_error = '✗'
+hi ALEErrorSign guifg=#DF8C8C
 let g:ale_sign_warning = '⚠'
+hi ALEWarningSign guifg=#F2C38F
 let g:ale_statusline_format = ['✗ %d', '⚠ %d', '']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -568,16 +562,16 @@ let g:used_javascript_libs = 'underscore,angularjs,react,vue,chai,jasmine'
 " Quramy/tsuquyomi {{{
 " =============================================================================
 
-let g:tsuquyomi_disable_quickfix = 1
+" let g:tsuquyomi_disable_quickfix = 1
 " augroup ts
 "   autocmd FileType typescript nmap <buffer> <Leader>T : <C-u>echo tsuquyomi#hint()<CR>
 "   autocmd FileType typescript nmap Ti <Plug>(TsuquyomiImport)
 "   autocmd FileType typescript nmap Td <Plug>(TsuquyomiDefinition)
 "   autocmd FileType typescript nmap Tr <Plug>(TsuquyomiReferences)
 " augroup end
-
-map <silent> <leader>ti :TsuquyomiImport <cr>
-map <silent> <Leader>th : <C-u>echo tsuquyomi#hint()<CR>
+"
+" map <silent> <leader>ti :TsuquyomiImport <cr>
+" map <silent> <Leader>th : <C-u>echo tsuquyomi#hint()<CR>
 
 " }}}
 
@@ -592,6 +586,7 @@ augroup nvimTypescriptMaps
     au FileType typescript nmap <leader>gd :TSDef <cr>
     au FileType typescript nmap <leader>gp :TSDefPreview <cr>
     au FileType typescript nmap <leader>tr :TSRefs <cr>
+    au FileType typescript nmap <leader>ti :TSImport <cr>
     au FileType typescript nmap <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
     " au FileType typescript setl omnifunc=TSComplete
 
@@ -734,4 +729,3 @@ augroup END
 let g:UltiSnipsExpandTrigger="<tab>"
 
 " }}}
-" =============================================================================

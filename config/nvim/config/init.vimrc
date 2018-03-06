@@ -46,6 +46,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'chemzqm/denite-extra'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'yssl/QFEnter'
+Plug 'ludovicchabant/vim-gutentags'
 " }}}2
 
 " File Navigation {{{2
@@ -53,6 +54,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'wellle/targets.vim'
 Plug 'haya14busa/incsearch.vim'
+Plug 'sheerun/vim-polyglot'
 " }}}2
 
 " Editing {{{2
@@ -75,8 +77,8 @@ Plug 'honza/vim-snippets'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'zchee/deoplete-jedi'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn add global tern' }
+Plug 'alexlafroscia/deoplete-flow',       { 'branch': 'pass-filename-to-autocomplete' }
 " }}}2
 
 " Git {{{2
@@ -118,16 +120,18 @@ Plug 'gavocanov/vim-js-indent'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
-Plug 'othree/yajs.vim'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 Plug 'posva/vim-vue'
+Plug 'ternjs/tern_for_vim'
 " }}}2
 
 " Typescript {{{2
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'mhartington/nvim-typescript'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'Quramy/tsuquyomi'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript',       { 'do': ':UpdateRemotePlugins' }
 " }}}2
 
 " ReasonML {{{2
