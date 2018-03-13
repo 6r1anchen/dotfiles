@@ -10,7 +10,7 @@ nnoremap <Leader>; ,
 nnoremap Q <nop>
 vnoremap // y/<C-R>"<CR>
 " recording macros is not my thing
-map q <Nop>
+" map q <Nop>
 " exit insert, dd line, enter insert
 inoremap <c-d> <esc>ddi
 " Navigate between display lines
